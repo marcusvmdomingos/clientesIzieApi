@@ -20,7 +20,9 @@ class CreateAddressesTable extends Migration
             $table->string('complement');
             $table->string('number');
             $table->string('city');
-            $table->string('state');
+            $table->string('state');            
+            $table->string('updated_at');
+            $table->string('created_at');
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')
                 ->references('id')

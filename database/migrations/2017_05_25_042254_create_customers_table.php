@@ -20,6 +20,8 @@ class CreateCustomersTable extends Migration
             $table->string('email', 60);
             $table->string('cpf');
             $table->string('birth');
+            $table->string('updated_at');
+            $table->string('created_at');
             $table->timestamps();
             $table->softDeletes();
         });
