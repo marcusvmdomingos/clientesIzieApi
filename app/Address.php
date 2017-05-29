@@ -13,4 +13,8 @@ class Address extends Model
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    function customer() {
+        return $this->belongsTo('App\Customer');
+    }
+
 }

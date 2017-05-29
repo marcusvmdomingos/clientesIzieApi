@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::options('customer/{id?}',function() use ($allowResponse)
+{
+    return (new Illuminate\Http\Response(null, 200))
+    ->header('Access-Control-Allow-Origin', '*')
+    ->header('Access-Control-Allow-Methods', 'GET', 'POST')
+    ->header('Access-Control-Allow-Headers', 'content-type, accept, x-requested-with'); // and any other headers you may send
+
+
+});
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -9,7 +9,7 @@ class Customer extends Model
 
 	protected $table = 'customers';
 
-    protected $fillable = ['name', 'email', 'cpf', 'birth'];
+    protected $fillable = ['name', 'gender', 'email', 'cpf', 'birth'];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 

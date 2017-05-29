@@ -10,21 +10,30 @@ use App\Http\Controllers\Controller;
 
 class AddressesController extends Controller
 {
+
     // public function index()
     // {
     //     $addresses = Address::with('customer')->get();
     //     return response()->json($addresses);
     // }
 
-    public function index()
+    public function index(Request $request)
     {
-        $addresses = Address::with('customer')->get();
-        return response()->json($addresses);
+        $customer_id = $request->customer_id;
+        if($customer_id) {
+            $addresses = Address::with('customer')-> where('customer_id', $customer_id)->get();
+        }else{
+            return response()->json([
+                'message'   => 'Cliente não informado. Informe um cliente.',
+            ], 409);
+        }
+            
+            return response()->json($addresses);
     }
 
     public function show($id)
     {
-        $addresses = Address::with('customer')->find($id);
+        $address = Address::with('customer')->find($id);
 
         if(!$address) {
             return response()->json([
